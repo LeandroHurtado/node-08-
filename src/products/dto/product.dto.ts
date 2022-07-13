@@ -1,4 +1,4 @@
-import { IsInt, IsString } from 'class-validator';
+import { IsArray, IsEnum, IsInt, IsString } from 'class-validator';
 
 export class ProductDTO {
   @IsString()
@@ -9,4 +9,9 @@ export class ProductDTO {
 
   @IsInt()
   stock: number;
+
+  @IsString({ each: true })
+  @IsArray()
+  @IsEnum(['XL', 'L', 'S'])
+  sizes: string[];
 }
