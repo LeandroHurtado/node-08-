@@ -26,7 +26,7 @@ export class Product {
   @OneToMany(() => Review, (review) => review.product)
   reviews: Review[];
 
+  @ManyToMany(() => Size, (size) => size.products, { cascade: true })
   @JoinTable()
-  @ManyToMany(() => Size, (size) => size.products)
   sizes: Size[];
 }
